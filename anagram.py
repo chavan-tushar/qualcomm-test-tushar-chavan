@@ -1,12 +1,16 @@
 
+import time
+
 class Anagrams:
     def __init__(self):
         self.words = open('a.txt').readlines()
-        self._similar_words = dict()
-        self._create_similar_words_dict()
-    
-    def _create_similar_words_dict(self) -> None:
         self.words = list(dict.fromkeys(self.words))
+        
+        self._similar_words = dict()
+
+        self._create_similar_words_dict()
+
+    def _create_similar_words_dict(self) -> None:
 
         for word in self.words:
             word = word.strip().lower()
@@ -57,8 +61,9 @@ class Anagrams:
 #         return "".join(sorted(list(word)))
 
 if __name__ == "__main__":
-    import time
+
     start_time = time.time()
+
     a = Anagrams()
     for i in range(100000):
         a.get_anagrams("ate")    
